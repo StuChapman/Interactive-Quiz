@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><!--css stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+</head>
+<body>
+    
+    <sectiom>
+        <h1>Name the 8 Wastes ...</h1>
+        <div id="wastecontainer">
+            <form>
+                <label for="wasteOne">Waste 1:</label>
+                <input type="text" id="wasteOne" class="unlocked"">  
+                <label for="wasteTwo">Waste 2:</label>
+                <input type="text" id="wasteTwo"">  
+                <label for="wasteThree">Waste 3:</label>
+                <input type="text" id="wasteThree"">  
+                <label for="wasteFour">Waste 4:</label>
+                <input type="text" id="wasteFour"">  
+                <label for="wasteFive">Waste 5:</label>
+                <input type="text" id="wasteFive"">  
+                <label for="wasteSix">Waste 6:</label>
+                <input type="text" id="wasteSix"">  
+                <label for="wasteSeven">Waste 7:</label>
+                <input type="text" id="wasteSeven"">  
+                <label for="wasteEight">Waste 8:</label>
+                <input type="text" id="wasteEight"">
+            </form>
+        </div>
+        <div>
+            <button onclick="checkAnswers()">Check Answers</button>
+            <button id="buttonReset" onclick="resetAnswers()">Reset Answers</button>
+        </div>
+    </section>
+
+    <script>
+        function checkAnswers() {
+            let answerOne = document.getElementById("wasteOne");
+            console.log(answerOne)
+            if (answerOne.text == "transportation") {
+                answerOne.classList.remove("unlocked");
+                answerOne.classList.add("correct");
+            } else {
+                answerOne.classList.remove("unlocked");
+                answerOne.classList.add("incorrect");
+            }
+        }
+    </script>
+
+
+
+    <button onclick="decrementHP()">Submit</button>
+    <button id="buttonReset" onclick="resetHP()">Reset</button>
+    <script>
+      function decrementHP() {
+        // Get element with the id of hp
+        let el = document.getElementById("hp");
+        // Set currentCount to the text of the element
+        let currentCount = el.innerText;// Get element with the id of hp
+
+        if (currentCount == 0) {
+          alert("Timed out");
+          document.getElementById('buttonReset').style.display = 'inline';
+        } else {
+          // Decrement current count and set it as the new text in our element
+          el.innerText = --currentCount;
+        }
+      }
+      function resetHP() {
+        let rEl = document.getElementById("hp");
+        rEl.innerText = 20;
+        document.getElementById('buttonReset').style.display = 'none';
+      }
+    </script>
+
+</body>
+</html>
