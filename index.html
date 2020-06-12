@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><!--css stylesheet-->
+    <title>The 8 Wastes Quiz</title><!--css stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 <body>
     
-    <sectiom>
-        <h1>Name the 8 Wastes ...</h1>
+    <section>
+        <h1>Name the 8 Wastes ... <span id="answerSpan"></span></h1>
         <div id="wastecontainer">
             <form>
-                <label for="wasteOne">Waste 1:</label>
-                <input type="text" id="wasteOne" class="unlocked"">  
+                <label for="waste1">Waste 1:</label>
+                <input type="text" id="waste1" >  
                 <label for="wasteTwo">Waste 2:</label>
-                <input type="text" id="wasteTwo"">  
+                <input type="text" id="waste2" >
                 <label for="wasteThree">Waste 3:</label>
-                <input type="text" id="wasteThree"">  
+                <input type="text" id="waste3" >
                 <label for="wasteFour">Waste 4:</label>
-                <input type="text" id="wasteFour"">  
+                <input type="text" id="waste4" >
                 <label for="wasteFive">Waste 5:</label>
-                <input type="text" id="wasteFive"">  
+                <input type="text" id="waste5" >
                 <label for="wasteSix">Waste 6:</label>
-                <input type="text" id="wasteSix"">  
+                <input type="text" id="waste6" >
                 <label for="wasteSeven">Waste 7:</label>
-                <input type="text" id="wasteSeven"">  
+                <input type="text" id="waste7" >
                 <label for="wasteEight">Waste 8:</label>
-                <input type="text" id="wasteEight"">
+                <input type="text" id="waste8" >
             </form>
         </div>
         <div>
@@ -38,42 +38,39 @@
 
     <script>
         function checkAnswers() {
-            let answerOne = document.getElementById("wasteOne");
-            console.log(answerOne)
-            if (answerOne.text == "transportation") {
-                answerOne.classList.remove("unlocked");
-                answerOne.classList.add("correct");
-            } else {
-                answerOne.classList.remove("unlocked");
-                answerOne.classList.add("incorrect");
+            let answerScore = 0
+            for (let answerCount = 1; answerCount <= 8; answerCount++) { 
+                let answerString = "waste" + answerCount;
+                console.log(answerString);
+                let answerVal = document.getElementById(answerString);
+                if (answerVal.value.toLowerCase() == "transportation" 
+                    || answerVal.value.toLowerCase() == "inventory" 
+                    || answerVal.value.toLowerCase() == "motion" 
+                    || answerVal.value.toLowerCase() == "waiting"  
+                    || answerVal.value.toLowerCase() == "overproduction" 
+                    || answerVal.value.toLowerCase() == "overprocessing" 
+                    || answerVal.value.toLowerCase() == "defects" 
+                    || answerVal.value.toLowerCase() == "skills" 
+                        || answerVal.value.toLowerCase() == "people"
+                        || answerVal.value.toLowerCase() == "talent") {
+                    console.log(answerVal.value)
+                    ++answerScore
+                } else {   
+                }
             }
+            answerSpanText = document.getElementById("answerSpan");
+            answerSpanText.innerText = answerScore + " correct"
         }
-    </script>
 
-
-
-    <button onclick="decrementHP()">Submit</button>
-    <button id="buttonReset" onclick="resetHP()">Reset</button>
-    <script>
-      function decrementHP() {
-        // Get element with the id of hp
-        let el = document.getElementById("hp");
-        // Set currentCount to the text of the element
-        let currentCount = el.innerText;// Get element with the id of hp
-
-        if (currentCount == 0) {
-          alert("Timed out");
-          document.getElementById('buttonReset').style.display = 'inline';
-        } else {
-          // Decrement current count and set it as the new text in our element
-          el.innerText = --currentCount;
+        function resetAnswers() {
+            for (let answerCount = 1; answerCount <= 8; answerCount++) { 
+                let answerString = "waste" + answerCount;
+                let answerVal = document.getElementById(answerString);
+                answerVal.value = "";
+            }
+            answerSpanText = document.getElementById("answerSpan");
+            answerSpanText.innerText = ""
         }
-      }
-      function resetHP() {
-        let rEl = document.getElementById("hp");
-        rEl.innerText = 20;
-        document.getElementById('buttonReset').style.display = 'none';
-      }
     </script>
 
 </body>
