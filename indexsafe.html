@@ -46,29 +46,25 @@
     <script>
         function checkAnswers() {
             let answerScore = 0
-            let answerList = ['dummy', 'inventory', 'transportation', 'motion', 'waiting', 'overproduction', 'overprocessing', 'defects', 'skills']
-            
             for (let answerCount = 1; answerCount <= 8; answerCount++) { 
                 let answerString = "waste" + answerCount;
                 console.log(answerString);
                 let answerVal = document.getElementById(answerString);
-                let answerText = answerVal.value;
-                console.log(answerText);
-                
-                if (answerList.indexOf(answerText)) {
-                    let answerIndex = answerList.indexOf(answerText);
-                    console.log(answerIndex);
-                    if (answerIndex > -1) {
-                        answerList.splice(answerIndex, 1);
-                        console.log(answerList);
-                        ++answerScore
-                    }else {  
-                        console.log("incorrect");
-                    } 
+                if (answerVal.value.toLowerCase() == "transportation" 
+                    || answerVal.value.toLowerCase() == "inventory" 
+                    || answerVal.value.toLowerCase() == "motion" 
+                    || answerVal.value.toLowerCase() == "waiting"  
+                    || answerVal.value.toLowerCase() == "overproduction" 
+                    || answerVal.value.toLowerCase() == "overprocessing" 
+                    || answerVal.value.toLowerCase() == "defects" 
+                    || answerVal.value.toLowerCase() == "skills" 
+                        || answerVal.value.toLowerCase() == "people"
+                        || answerVal.value.toLowerCase() == "talent") {
+                    console.log(answerVal.value)
+                    ++answerScore
+                } else {  
                 }
-            
             }
-
             answerSpanText = document.getElementById("answerSpan");
             answerSpanText.innerText = answerScore + " correct"
         }
