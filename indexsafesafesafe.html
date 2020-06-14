@@ -55,22 +55,23 @@
                 let answerText = answerVal.value.toLowerCase();
                 console.log(answerText);
                 
-                result = getIndexOfK(answerList, answerText);
-                console.log(result);
-                if (result != undefined && answerText != "") {
-                    console.log('found it');
-                    answerList.splice(result, 1);
-                }else {
-                    console.log('cannot find it');
-                }
-                let answerIndex = answerList.indexOf(answerText);
-                console.log(answerIndex);
-                if (answerIndex > -1) {
-                    //answerList.splice(answerIndex, 1);
-                    console.log(answerList);
-                    ++answerScore;
-                }else {  
-                    console.log("incorrect");
+                if (answerList.indexOf(answerText)) {
+                    result = getIndexOfK(answerList, answerText);
+                    console.log(result);
+                    if (result != undefined && answerText != "") {
+                        console.log('found it');
+                    }else {
+                        console.log('cannot find it');
+                    }
+                    let answerIndex = answerList.indexOf(answerText);
+                    console.log(answerIndex);
+                    if (answerIndex > -1) {
+                        //answerList.splice(answerIndex, 1);
+                        console.log(answerList);
+                        ++answerScore;
+                    }else {  
+                        console.log("incorrect");
+                    } 
                 }
             }
 
