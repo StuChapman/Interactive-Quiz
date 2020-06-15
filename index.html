@@ -5,43 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The 8 Wastes Quiz</title><!--css stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
-</head>
-<body>
-    
-    <section>
-        <h1>Name the 8 Wastes ... <span id="answerSpan"></span></h1>
-        <div id="wastecontainer">
-            <form>
-                <label for="waste1">Waste 1:</label>
-                <input type="text" id="waste1" > 
-                <br> 
-                <label for="waste2">Waste 2:</label>
-                <input type="text" id="waste2" >
-                <br> 
-                <label for="waste3">Waste 3:</label>
-                <input type="text" id="waste3" >
-                <br> 
-                <label for="waste4">Waste 4:</label>
-                <input type="text" id="waste4" >
-                <br> 
-                <label for="waste5">Waste 5:</label>
-                <input type="text" id="waste5" >
-                <br> 
-                <label for="waste6">Waste 6:</label>
-                <input type="text" id="waste6" >
-                <br> 
-                <label for="waste7">Waste 7:</label>
-                <input type="text" id="waste7" >
-                <br> 
-                <label for="waste8">Waste 8:</label>
-                <input type="text" id="waste8" >
-            </form>
-        </div>
-        <div>
-            <button onclick="checkAnswers()">Check Answers</button>
-            <button id="buttonReset" onclick="resetAnswers()">Reset Answers</button>
-        </div>
-    </section>
 
     <script>
         let attemptCount = 0;
@@ -78,6 +41,7 @@
                     if (answerScore == 8){
                         alert("Well Done! You have completed the quiz. " +
                                 "It took you: " + (attemptCount + 1) + " attempts.");
+                        document.getElementById('buttonNext').style.display = "inline";
                         resetAnswers();
                         return;
                     }
@@ -176,6 +140,46 @@ function checkColors() {
         }
 
     </script>
+
+</head>
+
+<body>
+    
+    <section>
+        <h1>Name the 8 Wastes ... <span id="answerSpan"></span></h1>
+        <div id="wastecontainer">
+            <form>
+                <label for="waste1">Waste 1:</label>
+                <input type="text" id="waste1" > 
+                <br> 
+                <label for="waste2">Waste 2:</label>
+                <input type="text" id="waste2" >
+                <br> 
+                <label for="waste3">Waste 3:</label>
+                <input type="text" id="waste3" >
+                <br> 
+                <label for="waste4">Waste 4:</label>
+                <input type="text" id="waste4" >
+                <br> 
+                <label for="waste5">Waste 5:</label>
+                <input type="text" id="waste5" >
+                <br> 
+                <label for="waste6">Waste 6:</label>
+                <input type="text" id="waste6" >
+                <br> 
+                <label for="waste7">Waste 7:</label>
+                <input type="text" id="waste7" >
+                <br> 
+                <label for="waste8">Waste 8:</label>
+                <input type="text" id="waste8" >
+            </form>
+        </div>
+        <div>
+            <button onclick="checkAnswers()">Check Answers</button>
+            <button id="buttonReset" onclick="resetAnswers()">Reset Answers</button>
+            <button id="buttonNext" ><a href="pagetwo.html" >Next</a></button>
+        </div>
+    </section>
 
 </body>
 </html>
