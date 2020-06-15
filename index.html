@@ -46,31 +46,34 @@
     <script>
         function checkAnswers() {
             let answerScore = 0
-            let answerList = ['dummy', 'inventory', 'transportation', 'motion', 'waiting', 'overproduction', 'overprocessing', 'defects', ['skills', 'talent']]
+            let answerList = ['dummy', 
+                                ['inventory', 'excess inventory'], 
+                                ['transportation', 'unnecessary transportation'], 
+                                ['motion', 'extra motion'], 
+                                ['waiting', 'waiting time'], 
+                                ['overproduction', 'over-production'],
+                                ['overprocessing', 'over-processing', 'over processing', 'extra processing', 'extra-processing', 'excess processing'], 
+                                ['defects', 'errors'], 
+                                ['skills', 'talent', 'unused talent', 'non-utilised-talent', 'non utilised talent', 'unutilised talents', 'non-utilized-talent', 'non utilized talent', 'unutilized talents']];
             
             for (let answerCount = 1; answerCount <= 8; answerCount++) { 
-                let answerString = "waste" + answerCount;
-                console.log(answerString);
-                let answerVal = document.getElementById(answerString);
+                let questionString = "waste" + answerCount;
+                console.log(questionString);
+                let answerVal = document.getElementById(questionString);
                 let answerText = answerVal.value.toLowerCase();
                 console.log(answerText);
                 
-                result = getIndexOfK(answerList, answerText);
-                console.log(result);
-                if (result != undefined && answerText != "") {
+                resultIndex = getIndexOfK(answerList, answerText);
+                console.log(resultIndex);
+                if (resultIndex != undefined && answerText != "") {
                     console.log('found it');
-                    answerList.splice(result, 1);
-                }else {
-                    console.log('cannot find it');
-                }
-                let answerIndex = answerList.indexOf(answerText);
-                console.log(answerIndex);
-                if (answerIndex > -1) {
-                    //answerList.splice(answerIndex, 1);
+                    let answerIndex = resultIndex[0];
+                    console.log(answerIndex);
+                    answerList.splice(answerIndex, 1);
                     console.log(answerList);
                     ++answerScore;
-                }else {  
-                    console.log("incorrect");
+                }else {
+                    console.log('cannot find it');
                 }
             }
 
@@ -79,16 +82,27 @@
         }
 
         function resetAnswers() {
+            let answerScore = 0
+            let answerList = ['dummy', 
+                                ['inventory', 'excess inventory'], 
+                                ['transportation', 'unnecessary transportation'], 
+                                ['motion', 'extra motion'], 
+                                ['waiting', 'waiting time'], 
+                                ['overproduction', 'over-production', 'over production'],
+                                ['overprocessing', 'over-processing', 'over processing', 'extra processing', 'extra-processing', 'excess processing'], 
+                                ['defects', 'errors'], 
+                                ['skills', 'talent', 'unused talent', 'non-utilised-talent', 'non utilised talent', 'unutilised talents', 'non-utilized-talent', 'non utilized talent', 'unutilized talents']];
+            console.log(answerList);
             for (let answerCount = 1; answerCount <= 8; answerCount++) { 
-                let answerString = "waste" + answerCount;
-                let answerVal = document.getElementById(answerString);
+                let questionString = "waste" + answerCount;
+                let answerVal = document.getElementById(questionString);
                 answerVal.value = "";
             }
             answerSpanText = document.getElementById("answerSpan");
             answerSpanText.innerText = ""
         }
 
-        function getIndexOfK(arr, k) {
+        function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ via https://stackoverflow.com/questions/16102263/to-find-index-of-multidimensional-array-in-javascript
             for (var i = 0; i < arr.length; i++) {
                 var index = arr[i].indexOf(k);
                 if (index > -1) {
