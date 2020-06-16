@@ -4,48 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drag and drop Quiz</title>
+        <!--Bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script src="assets/scripts/DragDropTouch.js"></script>
-
-    <script>
-
-    function allowDrop(ev) {// credit to https://www.w3schools.com/HTML/html5_draganddrop.asp
-    ev.preventDefault();
-    }
-
-    function drag(ev) {// credit to https://www.w3schools.com/HTML/html5_draganddrop.asp
-    ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function drop(ev) {// credit to https://www.w3schools.com/HTML/html5_draganddrop.asp
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    console.log(ev.target.id);
-    switch (ev.target.id) {
-        case 'div2': alert("Well Done!");
-        break;
-        case 'div3': alert("Oops!");
-        break;
-        default: ;
-        }
-    }
-
-    </script>
+    <script src="assets/scripts/scripts.js"></script>
+    
 
 </head>
 
 <body>
 
-    <h2>Drag and Drop</h2>
-    <p>Drag the image back and forth between the boxes.</p>
+    <h2>Value and Failure Demand</h2>
+    <p>Drag the Demands to where you think they should be - Value or Failure.</p>
 
-    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <img src="assets/images/brand.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="100" height="35">
+    <div class="boxheader">Value?
     </div>
-
-    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="container row ml-auto mr-auto">
+        <div id="valuebox1" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="valuebox2" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="valuebox3" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="valuebox4" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="valuebox5" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="valuebox6" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+    </div>
+    <div id="homebox" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class ="dragcard" draggable="true" ondragstart="drag(event)" id="drag1" width="100" height="35">
+        A Customer calling into branch for an update on their loan application.
+        </div>
+        <div class ="dragcard" draggable="true" ondragstart="drag(event)" id="drag2" width="100" height="35">
+        A Customer calling the Claims helpline to renew their policy.
+        </div>
+        <div class ="dragcard" draggable="true" ondragstart="drag(event)" id="drag3" width="100" height="35">
+        A Customer making an online payment.
+        </div>
+        <div class ="dragcard" draggable="true" ondragstart="drag(event)" id="drag4" width="100" height="35">
+        A Customer changing their order for a different model.
+        </div>
+        <div class ="dragcard" draggable="true" ondragstart="drag(event)" id="drag5" width="100" height="35">
+        Failure Demand
+        </div>
+    </div>
+    <div class="boxheader">Failure?
+    </div>
+    <div class="container row ml-auto mr-auto">
+        <div id="failurebox1" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="failurebox2" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="failurebox3" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="failurebox4" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="failurebox5" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div id="failurebox6" class="box col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+    </div>
 
 </body>
 </html>
