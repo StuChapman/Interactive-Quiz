@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and drop Quiz</title>
+        <!--Bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <script src="assets/scripts/DragDropTouch.js"></script>
+    <script src="assets/scripts/scripts.js"></script>
+
+</head>
+
+<body>
+
+<canvas id="drawContainer" width="500" height="500" style="touch-action: none" class="canvasOne"></canvas>
+
+<script>
+let i = 0;
+let XcoordS1, YcoordS1, XcoordF1, YcoordF1 = 0;
+let XcoordS2, YcoordS2, XcoordF2, YcoordF2 = 0;
+
+const canvasEle = document.getElementById('drawContainer');
+const context = canvasEle.getContext('2d');
+let startPosition = {x: 0, y: 0};
+let lineCoordinates = {x: 0, y: 0};
+let isDrawStart = false;
+
+const getClientOffset = (event) => {
+    const {pageX, pageY} = event.touches ? event.touches[0] : event;
+    const x = pageX - canvasEle.offsetLeft;
+    const y = pageY - canvasEle.offsetTop;
+
+    return {
+       x,
+       y
+    } 
+}
+
+const drawLine = () => {
+   context.beginPath();
+   context.moveTo(startPosition.x, startPosition.y);
+   context.lineTo(lineCoordinates.x, lineCoordinates.y);
+   context.stroke();
+}
+
+const mouseDownListener = (event) => {
+    i = i + 1;
+    console.log(i);
+    switch(i) {
+    case 1:
+        XcoordS1 = event.clientX;
+        YcoordS1 = event.clientY;
+        console.log("Start = X1: " + XcoordS1 + " - Y1: " + YcoordS1);
+        break;
+    case 2:
+        XcoordS2 = event.clientX;
+        YcoordS2 = event.clientY;
+        console.log("Start = X2: " + XcoordS2 + " - Y2: " + YcoordS2);
+        break;
+    default:
+        // code block
+    }
+   startPosition = getClientOffset(event);
+   isDrawStart = true;
+}
+
+const mouseMoveListener = (event) => {
+  if(!isDrawStart) return;
+  
+  lineCoordinates = getClientOffset(event);
+  clearCanvas();
+  drawLine();
+}
+
+const mouseupListener = (event) => {
+    switch(i) {
+    case 1:
+        XcoordF1 = event.clientX;
+        YcoordF1 = event.clientY;
+        console.log("End = X1: " + XcoordF1 + " - Y1: " + YcoordF1);
+        break;
+    case 2:
+        XcoordF2 = event.clientX;
+        YcoordF2 = event.clientY;
+        console.log("End = X2: " + XcoordF2 + " - Y2: " + YcoordF2);
+        break;
+    default:
+        // code block
+    }
+  isDrawStart = false;
+}
+
+const clearCanvas = () => {
+   context.clearRect(0, 0, canvasEle.width, canvasEle.height);
+   // redraw line1
+   context.beginPath();
+   context.moveTo(XcoordS1, YcoordS1);
+   context.lineTo(XcoordF1, YcoordF1);
+   context.stroke();
+   //redraw line2
+   context.beginPath();
+   context.moveTo(XcoordS2, YcoordS2);
+   context.lineTo(XcoordF2, YcoordF2);
+   context.stroke();
+}
+
+canvasEle.addEventListener('mousedown', mouseDownListener);
+canvasEle.addEventListener('mousemove', mouseMoveListener);
+canvasEle.addEventListener('mouseup', mouseupListener);
+
+canvasEle.addEventListener('touchstart', mouseDownListener);
+canvasEle.addEventListener('touchmove', mouseMoveListener);
+canvasEle.addEventListener('touchend', mouseupListener);
+
+</script>
+
+</body>
+</html>

@@ -223,3 +223,7 @@ function checkAnswersDnD() {
         document.getElementById("drag6").style.color = "white";
     }
 }
+
+// pagethree.html scripts
+//credit to: https://bearnithi.com/2019/12/12/understanding-canvas-draw-a-line-in-canvas-using-mouse-and-touch-events-in-javascript/
+
