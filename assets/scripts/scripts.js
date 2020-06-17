@@ -23,7 +23,7 @@ function checkAnswers() {
         let answerText = answerVal.value.toLowerCase();
         console.log(answerText);
         
-        resultIndex = getIndexOfK(answerList, answerText);
+        resultIndex = getIndexOfK(answerList, answerText.trim());
         console.log(resultIndex);
         if (resultIndex != undefined && answerText != "") {
             console.log('found it');
