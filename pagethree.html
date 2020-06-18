@@ -21,10 +21,10 @@
 let i = 0;
 let XcoordS1, YcoordS1, XcoordF1, YcoordF1 = 0;
 let XcoordS2, YcoordS2, XcoordF2, YcoordF2 = 0;
-let XcoordS3, YcoordS2, XcoordF3, YcoordF2 = 0;
-let XcoordS4, YcoordS2, XcoordF4, YcoordF2 = 0;
-let XcoordS5, YcoordS2, XcoordF5, YcoordF2 = 0;
-let XcoordS6, YcoordS2, XcoordF6, YcoordF2 = 0;
+let XcoordS3, YcoordS3, XcoordF3, YcoordF3 = 0;
+let XcoordS4, YcoordS4, XcoordF4, YcoordF4 = 0;
+let XcoordS5, YcoordS5, XcoordF5, YcoordF5 = 0;
+let XcoordS6, YcoordS6, XcoordF6, YcoordF6 = 0;
 
 const canvasEle = document.getElementById('drawContainer');
 const context = canvasEle.getContext('2d');
@@ -152,6 +152,26 @@ const mouseupListener = (event) => {
         YcoordF2 = event.clientY;
         console.log("End = X2: " + XcoordF2 + " - Y2: " + YcoordF2);
         break;
+    case 3:
+        XcoordF3 = event.clientX;
+        YcoordF3 = event.clientY;
+        console.log("End = X3: " + XcoordF3 + " - Y3: " + YcoordF3);
+        break;
+    case 4:
+        XcoordF4 = event.clientX;
+        YcoordF4 = event.clientY;
+        console.log("End = X4: " + XcoordF4 + " - Y4: " + YcoordF4);
+        break;
+    case 5:
+        XcoordF5 = event.clientX;
+        YcoordF5 = event.clientY;
+        console.log("End = X5: " + XcoordF5 + " - Y5: " + YcoordF5);
+        break;
+    case 6:
+        XcoordF6 = event.clientX;
+        YcoordF6 = event.clientY;
+        console.log("End = X6: " + XcoordF6 + " - Y6: " + YcoordF6);
+        break;
     default:
         // code block
     }
@@ -166,9 +186,29 @@ const touchupListener = (event) => {
         console.log("End = X1: " + XcoordF1 + " - Y1: " + YcoordF1);
         break;
     case 2:
-        XcoordF2 = event.clientX;
-        YcoordF2 = event.clientY;
+        XcoordF2 = event.changedTouches[0].pageX;
+        YcoordF2 = event.changedTouches[0].pageY;
         console.log("End = X2: " + XcoordF2 + " - Y2: " + YcoordF2);
+        break;
+    case 3:
+        XcoordF3 = event.changedTouches[0].pageX;
+        YcoordF3 = event.changedTouches[0].pageY;
+        console.log("End = X3: " + XcoordF3 + " - Y3: " + YcoordF3);
+        break;
+    case 4:
+        XcoordF4 = event.changedTouches[0].pageX;
+        YcoordF4 = event.changedTouches[0].pageY;
+        console.log("End = X4: " + XcoordF4 + " - Y4: " + YcoordF4);
+        break;
+    case 5:
+        XcoordF5 = event.changedTouches[0].pageX;
+        YcoordF5 = event.changedTouches[0].pageY;
+        console.log("End = X5: " + XcoordF5 + " - Y5: " + YcoordF5);
+        break;
+    case 6:
+        XcoordF6 = event.changedTouches[0].pageX;
+        YcoordF6 = event.changedTouches[0].pageY;
+        console.log("End = X6: " + XcoordF6 + " - Y6: " + YcoordF6);
         break;
     default:
         // code block
@@ -187,6 +227,21 @@ const clearCanvas = () => {
    context.beginPath();
    context.moveTo(XcoordS2, YcoordS2);
    context.lineTo(XcoordF2, YcoordF2);
+   context.stroke();
+   //redraw line3
+   context.beginPath();
+   context.moveTo(XcoordS3, YcoordS3);
+   context.lineTo(XcoordF3, YcoordF3);
+   context.stroke();
+   //redraw line4
+   context.beginPath();
+   context.moveTo(XcoordS4, YcoordS4);
+   context.lineTo(XcoordF4, YcoordF4);
+   context.stroke();
+   //redraw line5
+   context.beginPath();
+   context.moveTo(XcoordS5, YcoordS5);
+   context.lineTo(XcoordF5, YcoordF5);
    context.stroke();
 }
 
