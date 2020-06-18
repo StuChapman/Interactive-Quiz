@@ -15,12 +15,16 @@
 
 <body>
 
-<canvas id="drawContainer" width="500" height="500" style="touch-action: none" class="canvasOne"></canvas>
+<canvas id="drawContainer" width="500" height="250" style="touch-action: none" class="canvasOne"></canvas>
 
 <script>
 let i = 0;
 let XcoordS1, YcoordS1, XcoordF1, YcoordF1 = 0;
 let XcoordS2, YcoordS2, XcoordF2, YcoordF2 = 0;
+let XcoordS3, YcoordS2, XcoordF3, YcoordF2 = 0;
+let XcoordS4, YcoordS2, XcoordF4, YcoordF2 = 0;
+let XcoordS5, YcoordS2, XcoordF5, YcoordF2 = 0;
+let XcoordS6, YcoordS2, XcoordF6, YcoordF2 = 0;
 
 const canvasEle = document.getElementById('drawContainer');
 const context = canvasEle.getContext('2d');
@@ -60,6 +64,26 @@ const mouseDownListener = (event) => {
         YcoordS2 = event.clientY;
         console.log("Start = X2: " + XcoordS2 + " - Y2: " + YcoordS2);
         break;
+    case 3:
+        XcoordS3 = event.clientX;
+        YcoordS3 = event.clientY;
+        console.log("Start = X3: " + XcoordS3 + " - Y3: " + YcoordS3);
+        break;
+    case 4:
+        XcoordS4 = event.clientX;
+        YcoordS4 = event.clientY;
+        console.log("Start = X4: " + XcoordS4 + " - Y4: " + YcoordS4);
+        break;
+    case 5:
+        XcoordS5 = event.clientX;
+        YcoordS5 = event.clientY;
+        console.log("Start = X5: " + XcoordS5 + " - Y5: " + YcoordS5);
+        break;
+    case 6:
+        XcoordS6 = event.clientX;
+        YcoordS6 = event.clientY;
+        console.log("Start = X6: " + XcoordS6 + " - Y6: " + YcoordS6);
+        break;
     default:
         // code block
     }
@@ -67,7 +91,48 @@ const mouseDownListener = (event) => {
    isDrawStart = true;
 }
 
-const mouseMoveListener = (event) => {
+const touchDownListener = (event) => {
+    i = i + 1;
+    console.log(i);
+    switch(i) {
+    case 1:
+        XcoordS1 = event.changedTouches[0].pageX;
+        YcoordS1 = event.changedTouches[0].pageY;
+        console.log("Start = X1: " + XcoordS1 + " - Y1: " + YcoordS1);
+        break;
+    case 2:
+        XcoordS2 = event.changedTouches[0].pageX;
+        YcoordS2 = event.changedTouches[0].pageY;
+        console.log("Start = X2: " + XcoordS2 + " - Y2: " + YcoordS2);
+        break;
+    case 3:
+        XcoordS3 = event.changedTouches[0].pageX;
+        YcoordS3 = event.changedTouches[0].pageY;
+        console.log("Start = X3: " + XcoordS3 + " - Y3: " + YcoordS3);
+        break;
+    case 4:
+        XcoordS4 = event.changedTouches[0].pageX;
+        YcoordS4 = event.changedTouches[0].pageY;
+        console.log("Start = X4: " + XcoordS4 + " - Y4: " + YcoordS4);
+        break;
+    case 5:
+        XcoordS5 = event.changedTouches[0].pageX;
+        YcoordS5 = event.changedTouches[0].pageY;
+        console.log("Start = X5: " + XcoordS5 + " - Y5: " + YcoordS5);
+        break;
+    case 6:
+        XcoordS6 = event.changedTouches[0].pageX;
+        YcoordS6 = event.changedTouches[0].pageY;
+        console.log("Start = X6: " + XcoordS6 + " - Y6: " + YcoordS6);
+        break;
+    default:
+        // code block
+    }
+   startPosition = getClientOffset(event);
+   isDrawStart = true;
+}
+
+const allMoveListener = (event) => {
   if(!isDrawStart) return;
   
   lineCoordinates = getClientOffset(event);
@@ -80,6 +145,24 @@ const mouseupListener = (event) => {
     case 1:
         XcoordF1 = event.clientX;
         YcoordF1 = event.clientY;
+        console.log("End = X1: " + XcoordF1 + " - Y1: " + YcoordF1);
+        break;
+    case 2:
+        XcoordF2 = event.clientX;
+        YcoordF2 = event.clientY;
+        console.log("End = X2: " + XcoordF2 + " - Y2: " + YcoordF2);
+        break;
+    default:
+        // code block
+    }
+  isDrawStart = false;
+}
+
+const touchupListener = (event) => {
+    switch(i) {
+    case 1:
+        XcoordF1 = event.changedTouches[0].pageX;
+        YcoordF1 = event.changedTouches[0].pageY;
         console.log("End = X1: " + XcoordF1 + " - Y1: " + YcoordF1);
         break;
     case 2:
@@ -108,12 +191,12 @@ const clearCanvas = () => {
 }
 
 canvasEle.addEventListener('mousedown', mouseDownListener);
-canvasEle.addEventListener('mousemove', mouseMoveListener);
+canvasEle.addEventListener('mousemove', allMoveListener);
 canvasEle.addEventListener('mouseup', mouseupListener);
 
-canvasEle.addEventListener('touchstart', mouseDownListener);
-canvasEle.addEventListener('touchmove', mouseMoveListener);
-canvasEle.addEventListener('touchend', mouseupListener);
+canvasEle.addEventListener('touchstart', touchDownListener);
+canvasEle.addEventListener('touchmove', allMoveListener);
+canvasEle.addEventListener('touchend', touchupListener);
 
 </script>
 
