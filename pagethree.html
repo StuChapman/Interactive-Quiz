@@ -15,41 +15,154 @@
 
 <body>
 
-<canvas id="drawContainer" width="750" height="500" style="touch-action: none" class="canvasOne"></canvas>
-<div class ="preOne align-vertically">
+<canvas id="drawContainer" width="500" height="300" style="touch-action: none" class="canvasOne"></canvas>
+<div id="preOne" class="align-vertically">
     Head Office mentality
 </div>
-<div class ="postOne align-vertically">
+<div id="postOne" class="align-vertically">
     Leaders in the Work
-</div><div class ="preTwo align-vertically">
+</div>
+<div id="preTwo" class="align-vertically">
     Targets
 </div>
-<div class ="postTwo align-vertically">
+<div id="postThree" class="align-vertically">
     Flexibility
-</div><div class ="preThree align-vertically">
+</div>
+<div id="preThree" class="align-vertically">
     "One Best Way"
 </div>
-<div class ="postThree align-vertically">
+<div id="postTwo" class="align-vertically">
     Measures
 </div>
 <button  id="checkAnswersLine" class="align-vertically" onclick="checkAnswersLine()">Check Answers</button>
+<button  id="resetAnswers" class="align-vertically" onclick="resetAnswers()">Reset</button>
 
 <script>
 
+let lineOneS = "";
+let lineOneF = "";
+let lineTwoS = "";
+let lineTwoF = "";
+let lineThreeS = "";
+let lineThreeF = "";
+
+
 function checkAnswersLine() {
     if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 25 && YcoordS1 < 100) {
-        console.log("lineOneS = preOne");
+        lineOneS = "pOne";
     }else {
         if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 125 && YcoordS1 < 200) {
-        console.log("lineOneS = preTwo");
+        lineOneS = "pTwo";
         }else {
             if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 225 && YcoordS1 < 300) {
-            console.log("lineOneS = preThree");
+            lineOneS = "pThree";
             }else {
-                console.log("lineOneS = none");
+                lineOneS = "noneS";
             }
         }
     }
+    if (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 25 && YcoordF1 < 100) {
+        lineOneF = "pOne";
+    }else {
+        if (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 125 && YcoordF1 < 200) {
+        lineOneF = "pTwo";
+        }else {
+            if (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 225 && YcoordF1 < 300) {
+            lineOneF = "pThree";
+            }else {
+                lineOneF = "noneF";
+            }
+        }
+    }
+
+    if (XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 25 && YcoordS2 < 100) {
+        lineTwoS = "pOne";
+    }else {
+        if (XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 125 && YcoordS2 < 200) {
+        lineTwoS = "pTwo";
+        }else {
+            if (XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 225 && YcoordS2 < 300) {
+            lineTwoS = "pThree";
+            }else {
+                lineTwoS = "noneS";
+            }
+        }
+    }
+    if (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 25 && YcoordF2 < 100) {
+        lineTwoF = "pOne";
+    }else {
+        if (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 125 && YcoordF2 < 200) {
+        lineTwoF = "pThree";
+        }else {
+            if (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 225 && YcoordF2 < 300) {
+            lineTwoF = "pTwo";
+            }else {
+                lineTwoF = "noneF";
+            }
+        }
+    }
+
+    if (XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 25 && YcoordS3 < 100) {
+        lineThreeS = "pOne";
+    }else {
+        if (XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 125 && YcoordS3 < 200) {
+        lineThreeS = "pTwo";
+        }else {
+            if (XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 225 && YcoordS3 < 300) {
+            lineThreeS = "pThree";
+            }else {
+                lineThreeS = "noneS";
+            }
+        }
+    }
+    if (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 25 && YcoordF3 < 100) {
+        lineThreeF = "pOne";
+    }else {
+        if (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 125 && YcoordF3 < 200) {
+        lineThreeF = "pThree";
+        }else {
+            if (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 225 && YcoordF3 < 300) {
+            lineThreeF = "pTwo";
+            }else {
+                lineThreeF = "noneF";
+            }
+        }
+    }
+    PaintCorrect();
+}
+
+function PaintCorrect() {
+    if (lineOneS == lineOneF) {
+        console.log("lineOne correct");
+        document.getElementById("preOne").style.backgroundColor = "limegreen";
+        document.getElementById("postOne").style.backgroundColor = "limegreen";
+    }else {
+        console.log("lineOne incorrect");
+        document.getElementById("preOne").style.backgroundColor = "indianred";
+        document.getElementById("postOne").style.backgroundColor = "indianred";
+    }
+    if (lineTwoS == lineTwoF) {
+        console.log("lineTwo correct");
+        document.getElementById("preTwo").style.backgroundColor = "limegreen";
+        document.getElementById("postTwo").style.backgroundColor = "limegreen";
+    }else {
+        console.log("lineTwo incorrect");
+        document.getElementById("preTwo").style.backgroundColor = "indianred";
+        document.getElementById("postTwo").style.backgroundColor = "indianred";
+    }
+    if (lineThreeS == lineThreeF) {
+        console.log("lineThree correct");
+        document.getElementById("preThree").style.backgroundColor = "limegreen";
+        document.getElementById("postThree").style.backgroundColor = "limegreen";
+    }else {
+        console.log("lineThree incorrect");
+        document.getElementById("preThree").style.backgroundColor = "indianred";
+        document.getElementById("postThree").style.backgroundColor = "indianred";
+    }
+}
+
+function resetAnswers() {
+    location.reload();
 }
 
 
@@ -57,9 +170,6 @@ let i = 0;
 let XcoordS1, YcoordS1, XcoordF1, YcoordF1 = 0;
 let XcoordS2, YcoordS2, XcoordF2, YcoordF2 = 0;
 let XcoordS3, YcoordS3, XcoordF3, YcoordF3 = 0;
-let XcoordS4, YcoordS4, XcoordF4, YcoordF4 = 0;
-let XcoordS5, YcoordS5, XcoordF5, YcoordF5 = 0;
-let XcoordS6, YcoordS6, XcoordF6, YcoordF6 = 0;
 
 const canvasEle = document.getElementById('drawContainer');
 const context = canvasEle.getContext('2d');
@@ -104,21 +214,6 @@ const mouseDownListener = (event) => {
         YcoordS3 = event.clientY;
         console.log("Start = X3: " + XcoordS3 + " - Y3: " + YcoordS3);
         break;
-    case 4:
-        XcoordS4 = event.clientX;
-        YcoordS4 = event.clientY;
-        console.log("Start = X4: " + XcoordS4 + " - Y4: " + YcoordS4);
-        break;
-    case 5:
-        XcoordS5 = event.clientX;
-        YcoordS5 = event.clientY;
-        console.log("Start = X5: " + XcoordS5 + " - Y5: " + YcoordS5);
-        break;
-    case 6:
-        XcoordS6 = event.clientX;
-        YcoordS6 = event.clientY;
-        console.log("Start = X6: " + XcoordS6 + " - Y6: " + YcoordS6);
-        break;
     default:
         // code block
     }
@@ -144,21 +239,6 @@ const touchDownListener = (event) => {
         XcoordS3 = event.changedTouches[0].pageX;
         YcoordS3 = event.changedTouches[0].pageY;
         console.log("Start = X3: " + XcoordS3 + " - Y3: " + YcoordS3);
-        break;
-    case 4:
-        XcoordS4 = event.changedTouches[0].pageX;
-        YcoordS4 = event.changedTouches[0].pageY;
-        console.log("Start = X4: " + XcoordS4 + " - Y4: " + YcoordS4);
-        break;
-    case 5:
-        XcoordS5 = event.changedTouches[0].pageX;
-        YcoordS5 = event.changedTouches[0].pageY;
-        console.log("Start = X5: " + XcoordS5 + " - Y5: " + YcoordS5);
-        break;
-    case 6:
-        XcoordS6 = event.changedTouches[0].pageX;
-        YcoordS6 = event.changedTouches[0].pageY;
-        console.log("Start = X6: " + XcoordS6 + " - Y6: " + YcoordS6);
         break;
     default:
         // code block
@@ -192,21 +272,6 @@ const mouseupListener = (event) => {
         YcoordF3 = event.clientY;
         console.log("End = X3: " + XcoordF3 + " - Y3: " + YcoordF3);
         break;
-    case 4:
-        XcoordF4 = event.clientX;
-        YcoordF4 = event.clientY;
-        console.log("End = X4: " + XcoordF4 + " - Y4: " + YcoordF4);
-        break;
-    case 5:
-        XcoordF5 = event.clientX;
-        YcoordF5 = event.clientY;
-        console.log("End = X5: " + XcoordF5 + " - Y5: " + YcoordF5);
-        break;
-    case 6:
-        XcoordF6 = event.clientX;
-        YcoordF6 = event.clientY;
-        console.log("End = X6: " + XcoordF6 + " - Y6: " + YcoordF6);
-        break;
     default:
         // code block
     }
@@ -230,21 +295,6 @@ const touchupListener = (event) => {
         YcoordF3 = event.changedTouches[0].pageY;
         console.log("End = X3: " + XcoordF3 + " - Y3: " + YcoordF3);
         break;
-    case 4:
-        XcoordF4 = event.changedTouches[0].pageX;
-        YcoordF4 = event.changedTouches[0].pageY;
-        console.log("End = X4: " + XcoordF4 + " - Y4: " + YcoordF4);
-        break;
-    case 5:
-        XcoordF5 = event.changedTouches[0].pageX;
-        YcoordF5 = event.changedTouches[0].pageY;
-        console.log("End = X5: " + XcoordF5 + " - Y5: " + YcoordF5);
-        break;
-    case 6:
-        XcoordF6 = event.changedTouches[0].pageX;
-        YcoordF6 = event.changedTouches[0].pageY;
-        console.log("End = X6: " + XcoordF6 + " - Y6: " + YcoordF6);
-        break;
     default:
         // code block
     }
@@ -262,21 +312,6 @@ const clearCanvas = () => {
    context.beginPath();
    context.moveTo(XcoordS2, YcoordS2);
    context.lineTo(XcoordF2, YcoordF2);
-   context.stroke();
-   //redraw line3
-   context.beginPath();
-   context.moveTo(XcoordS3, YcoordS3);
-   context.lineTo(XcoordF3, YcoordF3);
-   context.stroke();
-   //redraw line4
-   context.beginPath();
-   context.moveTo(XcoordS4, YcoordS4);
-   context.lineTo(XcoordF4, YcoordF4);
-   context.stroke();
-   //redraw line5
-   context.beginPath();
-   context.moveTo(XcoordS5, YcoordS5);
-   context.lineTo(XcoordF5, YcoordF5);
    context.stroke();
 }
 

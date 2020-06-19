@@ -134,51 +134,59 @@ input {
     left: 10px;
     top: 10px;
     border: 1px solid red;
-    background-color: rgba(248, 241, 241, .2);
+    background-color: rgba(248, 241, 241, .005);
     z-index: 1;
     }
 
-.preOne, .postOne, .preTwo, .postTwo, .preThree, .postThree {
+#preOne, #postOne, #preTwo, #postTwo, #preThree, #postThree {
     position: absolute;
     width: 75px;
     height: 75px;
     border: 1px solid blue;
-    background-color: rgb(159, 134, 248);
+    background-color: lightgray;
     font-size: 14px;
     text-align: center;
     z-index: 0;
 }
 
-.preOne {
+#preOne {
     left: 25px;
     top: 25px;
 }
 
-.postOne {
-    left: 675px;
+#postOne {
+    left: 425px;
     top: 25px;
 }
 
-.preTwo {
+#preTwo {
     left: 25px;
     top: 125px;
 }
 
-.postTwo {
-    left: 675px;
+#postTwo {
+    left: 425px;
     top: 125px;
 }
-.preThree {
+
+#preThree {
     left: 25px;
     top: 225px;
 }
 
-.postThree {
-    left: 675px;
+#postThree {
+    left: 425px;
     top: 225px;
 }
+
 #checkAnswersLine {
     position: absolute;
-    left: 775px;
+    left: 515px;
     top: 10px;
+}
+
+#resetAnswers {
+    position: absolute;
+    left: 515px;
+    top: 75px;
 }
