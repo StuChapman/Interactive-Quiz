@@ -1,7 +1,7 @@
 
 body {
-    background: burlywood;
-    color: brown;
+    background: rgb(250, 224, 191);
+    color: rgb(114, 76, 76);
 }
 
 /* index.html styles */
@@ -130,6 +130,55 @@ input {
 /* pagethree.html styles */
 
 .canvasOne {
-      border: 1px solid red;
-      background-color: white;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border: 1px solid red;
+    background-color: rgba(248, 241, 241, .2);
+    z-index: 1;
     }
+
+.preOne, .postOne, .preTwo, .postTwo, .preThree, .postThree {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border: 1px solid blue;
+    background-color: rgb(159, 134, 248);
+    font-size: 14px;
+    text-align: center;
+    z-index: 0;
+}
+
+.preOne {
+    left: 25px;
+    top: 25px;
+}
+
+.postOne {
+    left: 675px;
+    top: 25px;
+}
+
+.preTwo {
+    left: 25px;
+    top: 125px;
+}
+
+.postTwo {
+    left: 675px;
+    top: 125px;
+}
+.preThree {
+    left: 25px;
+    top: 225px;
+}
+
+.postThree {
+    left: 675px;
+    top: 225px;
+}
+#checkAnswersLine {
+    position: absolute;
+    left: 775px;
+    top: 10px;
+}

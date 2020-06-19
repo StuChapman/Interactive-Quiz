@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag and drop Quiz</title>
+    <title>Opposites Quiz</title>
         <!--Bootstrap stylesheet-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
@@ -15,9 +15,44 @@
 
 <body>
 
-<canvas id="drawContainer" width="500" height="250" style="touch-action: none" class="canvasOne"></canvas>
+<canvas id="drawContainer" width="750" height="500" style="touch-action: none" class="canvasOne"></canvas>
+<div class ="preOne align-vertically">
+    Head Office mentality
+</div>
+<div class ="postOne align-vertically">
+    Leaders in the Work
+</div><div class ="preTwo align-vertically">
+    Targets
+</div>
+<div class ="postTwo align-vertically">
+    Flexibility
+</div><div class ="preThree align-vertically">
+    "One Best Way"
+</div>
+<div class ="postThree align-vertically">
+    Measures
+</div>
+<button  id="checkAnswersLine" class="align-vertically" onclick="checkAnswersLine()">Check Answers</button>
 
 <script>
+
+function checkAnswersLine() {
+    if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 25 && YcoordS1 < 100) {
+        console.log("lineOneS = preOne");
+    }else {
+        if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 125 && YcoordS1 < 200) {
+        console.log("lineOneS = preTwo");
+        }else {
+            if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 225 && YcoordS1 < 300) {
+            console.log("lineOneS = preThree");
+            }else {
+                console.log("lineOneS = none");
+            }
+        }
+    }
+}
+
+
 let i = 0;
 let XcoordS1, YcoordS1, XcoordF1, YcoordF1 = 0;
 let XcoordS2, YcoordS2, XcoordF2, YcoordF2 = 0;
