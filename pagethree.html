@@ -48,116 +48,237 @@ let lineThreeF = "";
 
 
 function checkAnswersLine() {
-    if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 25 && YcoordS1 < 100) {
+    if ((XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 25 && YcoordS1 < 100) 
+        || (XcoordS1 > 425 && XcoordS1 < 500 && YcoordS1 > 25 && YcoordS1 < 100)) {
         lineOneS = "pOne";
     }else {
-        if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 125 && YcoordS1 < 200) {
+        if ((XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 125 && YcoordS1 < 200) 
+        || (XcoordS1 > 425 && XcoordS1 < 500 && YcoordS1 > 225 && YcoordS1 < 300)) {
         lineOneS = "pTwo";
         }else {
-            if (XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 225 && YcoordS1 < 300) {
+            if ((XcoordS1 > 25 && XcoordS1 < 100 && YcoordS1 > 225 && YcoordS1 < 300) 
+            || (XcoordS1 > 425 && XcoordS1 < 500 && YcoordS1 > 125 && YcoordS1 < 200)) {
             lineOneS = "pThree";
             }else {
                 lineOneS = "noneS";
             }
         }
     }
-    if (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 25 && YcoordF1 < 100) {
+    if ((XcoordF1 > 25 && XcoordF1 < 100 && YcoordF1 > 25 && YcoordF1 < 100) 
+        || (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 25 && YcoordF1 < 100)) {
         lineOneF = "pOne";
     }else {
-        if (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 125 && YcoordF1 < 200) {
+        if ((XcoordF1 > 25 && XcoordF1 < 100 && YcoordF1 > 125 && YcoordF1 < 200) 
+        || (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 225 && YcoordF1 < 300)) {
         lineOneF = "pTwo";
         }else {
-            if (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 225 && YcoordF1 < 300) {
+            if ((XcoordF1 > 25 && XcoordF1 < 100 && YcoordF1 > 225 && YcoordF1 < 300) 
+            || (XcoordF1 > 425 && XcoordF1 < 500 && YcoordF1 > 125 && YcoordF1 < 200)) {
             lineOneF = "pThree";
             }else {
                 lineOneF = "noneF";
             }
         }
     }
-
-    if (XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 25 && YcoordS2 < 100) {
+    console.log("LineOneS = " + lineOneS);
+    console.log("LineOneF = " + lineOneF);
+if ((XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 25 && YcoordS2 < 100) 
+        || (XcoordS2 > 425 && XcoordS2 < 500 && YcoordS2 > 25 && YcoordS2 < 100)) {
         lineTwoS = "pOne";
     }else {
-        if (XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 125 && YcoordS2 < 200) {
+        if ((XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 125 && YcoordS2 < 200) 
+        || (XcoordS2 > 425 && XcoordS2 < 500 && YcoordS2 > 225 && YcoordS2 < 300)) {
         lineTwoS = "pTwo";
         }else {
-            if (XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 225 && YcoordS2 < 300) {
+            if ((XcoordS2 > 25 && XcoordS2 < 100 && YcoordS2 > 225 && YcoordS2 < 300) 
+            || (XcoordS2 > 425 && XcoordS2 < 500 && YcoordS2 > 125 && YcoordS2 < 200)) {
             lineTwoS = "pThree";
             }else {
                 lineTwoS = "noneS";
             }
         }
     }
-    if (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 25 && YcoordF2 < 100) {
+    if ((XcoordF2 > 25 && XcoordF2 < 100 && YcoordF2 > 25 && YcoordF2 < 100) 
+        || (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 25 && YcoordF2 < 100)) {
         lineTwoF = "pOne";
     }else {
-        if (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 125 && YcoordF2 < 200) {
-        lineTwoF = "pThree";
+        if ((XcoordF2 > 25 && XcoordF2 < 100 && YcoordF2 > 125 && YcoordF2 < 200) 
+        || (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 225 && YcoordF2 < 300)) {
+        lineTwoF = "pTwo";
         }else {
-            if (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 225 && YcoordF2 < 300) {
-            lineTwoF = "pTwo";
+            if ((XcoordF2 > 25 && XcoordF2 < 100 && YcoordF2 > 225 && YcoordF2 < 300) 
+            || (XcoordF2 > 425 && XcoordF2 < 500 && YcoordF2 > 125 && YcoordF2 < 200)) {
+            lineTwoF = "pThree";
             }else {
                 lineTwoF = "noneF";
             }
         }
     }
+    console.log("LineTwoS = " + lineTwoS);
+    console.log("LineTwoF = " + lineTwoF);
 
-    if (XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 25 && YcoordS3 < 100) {
+if ((XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 25 && YcoordS3 < 100) 
+        || (XcoordS3 > 425 && XcoordS3 < 500 && YcoordS3 > 25 && YcoordS3 < 100)) {
         lineThreeS = "pOne";
     }else {
-        if (XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 125 && YcoordS3 < 200) {
+        if ((XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 125 && YcoordS3 < 200) 
+        || (XcoordS3 > 425 && XcoordS3 < 500 && YcoordS3 > 225 && YcoordS3 < 300)) {
         lineThreeS = "pTwo";
         }else {
-            if (XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 225 && YcoordS3 < 300) {
+            if ((XcoordS3 > 25 && XcoordS3 < 100 && YcoordS3 > 225 && YcoordS3 < 300) 
+            || (XcoordS3 > 425 && XcoordS3 < 500 && YcoordS3 > 125 && YcoordS3 < 200)) {
             lineThreeS = "pThree";
             }else {
                 lineThreeS = "noneS";
             }
         }
     }
-    if (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 25 && YcoordF3 < 100) {
+    if ((XcoordF3 > 25 && XcoordF3 < 100 && YcoordF3 > 25 && YcoordF3 < 100) 
+        || (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 25 && YcoordF3 < 100)) {
         lineThreeF = "pOne";
     }else {
-        if (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 125 && YcoordF3 < 200) {
-        lineThreeF = "pThree";
+        if ((XcoordF3 > 25 && XcoordF3 < 100 && YcoordF3 > 125 && YcoordF3 < 200) 
+        || (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 225 && YcoordF3 < 300)) {
+        lineThreeF = "pTwo";
         }else {
-            if (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 225 && YcoordF3 < 300) {
-            lineThreeF = "pTwo";
+            if ((XcoordF3 > 25 && XcoordF3 < 100 && YcoordF3 > 225 && YcoordF3 < 300) 
+            || (XcoordF3 > 425 && XcoordF3 < 500 && YcoordF3 > 125 && YcoordF3 < 200)) {
+            lineThreeF = "pThree";
             }else {
                 lineThreeF = "noneF";
             }
         }
     }
+
+    console.log("LineTwoS = " + lineTwoS);
+    console.log("LineTwoF = " + lineTwoF);
+
     PaintCorrect();
 }
 
 function PaintCorrect() {
     if (lineOneS == lineOneF) {
-        console.log("lineOne correct");
-        document.getElementById("preOne").style.backgroundColor = "limegreen";
-        document.getElementById("postOne").style.backgroundColor = "limegreen";
+        switch(lineOneS) {
+        case "pOne":
+            console.log("lineOne-preOne correct");
+            document.getElementById("preOne").style.backgroundColor = "limegreen";
+            document.getElementById("postOne").style.backgroundColor = "limegreen";
+            break;
+        case "pTwo":
+            console.log("lineOne-preTwo correct");
+            document.getElementById("preTwo").style.backgroundColor = "limegreen";
+            document.getElementById("postTwo").style.backgroundColor = "limegreen";
+            break;
+        case "pThree":
+            console.log("lineOne-preThree correct");
+            document.getElementById("preThree").style.backgroundColor = "limegreen";
+            document.getElementById("postThree").style.backgroundColor = "limegreen";
+            break;
+        default:
+            // code block
+        }
     }else {
-        console.log("lineOne incorrect");
-        document.getElementById("preOne").style.backgroundColor = "indianred";
-        document.getElementById("postOne").style.backgroundColor = "indianred";
+        switch(lineOneS) {
+        case "pOne":
+            console.log("lineOne-preOne incorrect");
+            document.getElementById("preOne").style.backgroundColor = "indianred";
+            document.getElementById("postOne").style.backgroundColor = "indianred";
+            break;
+        case "pTwo":
+            console.log("lineOne-preTwo incorrect");
+            document.getElementById("preTwo").style.backgroundColor = "indianred";
+            document.getElementById("postTwo").style.backgroundColor = "indianred";
+            break;
+        case "pThree":
+            console.log("lineOne-preThree incorrect");
+            document.getElementById("preThree").style.backgroundColor = "indianred";
+            document.getElementById("postThree").style.backgroundColor = "indianred";
+            break;
+        default:
+            // code block
+        }
     }
     if (lineTwoS == lineTwoF) {
-        console.log("lineTwo correct");
-        document.getElementById("preTwo").style.backgroundColor = "limegreen";
-        document.getElementById("postTwo").style.backgroundColor = "limegreen";
+        switch(lineTwoS) {
+        case "pOne":
+            console.log("lineTwo-preOne correct");
+            document.getElementById("preOne").style.backgroundColor = "limegreen";
+            document.getElementById("postOne").style.backgroundColor = "limegreen";
+            break;
+        case "pTwo":
+            console.log("lineTwo-preTwo correct");
+            document.getElementById("preTwo").style.backgroundColor = "limegreen";
+            document.getElementById("postTwo").style.backgroundColor = "limegreen";
+            break;
+        case "pThree":
+            console.log("lineTwo-preThree correct");
+            document.getElementById("preThree").style.backgroundColor = "limegreen";
+            document.getElementById("postThree").style.backgroundColor = "limegreen";
+            break;
+        default:
+            // code block
+        }
     }else {
-        console.log("lineTwo incorrect");
-        document.getElementById("preTwo").style.backgroundColor = "indianred";
-        document.getElementById("postTwo").style.backgroundColor = "indianred";
+        switch(lineTwoS) {
+        case "pOne":
+            console.log("lineTwo-preOne incorrect");
+            document.getElementById("preOne").style.backgroundColor = "indianred";
+            document.getElementById("postOne").style.backgroundColor = "indianred";
+            break;
+        case "pTwo":
+            console.log("lineTwo-preTwo incorrect");
+            document.getElementById("preTwo").style.backgroundColor = "indianred";
+            document.getElementById("postTwo").style.backgroundColor = "indianred";
+            break;
+        case "pThree":
+            console.log("lineTwo-preThree incorrect");
+            document.getElementById("preThree").style.backgroundColor = "indianred";
+            document.getElementById("postThree").style.backgroundColor = "indianred";
+            break;
+        default:
+            // code block
+        }
     }
     if (lineThreeS == lineThreeF) {
-        console.log("lineThree correct");
-        document.getElementById("preThree").style.backgroundColor = "limegreen";
-        document.getElementById("postThree").style.backgroundColor = "limegreen";
+        switch(lineThreeS) {
+        case "pOne":
+            console.log("lineThree-preOne correct");
+            document.getElementById("preOne").style.backgroundColor = "limegreen";
+            document.getElementById("postOne").style.backgroundColor = "limegreen";
+            break;
+        case "pTwo":
+            console.log("lineThree-preTwo correct");
+            document.getElementById("preTwo").style.backgroundColor = "limegreen";
+            document.getElementById("postTwo").style.backgroundColor = "limegreen";
+            break;
+        case "pThree":
+            console.log("lineThree-preThree correct");
+            document.getElementById("preThree").style.backgroundColor = "limegreen";
+            document.getElementById("postThree").style.backgroundColor = "limegreen";
+            break;
+        default:
+            // code block
+        }
     }else {
-        console.log("lineThree incorrect");
-        document.getElementById("preThree").style.backgroundColor = "indianred";
-        document.getElementById("postThree").style.backgroundColor = "indianred";
+        switch(lineThreeS) {
+        case "pOne":
+            console.log("lineThree-preOne incorrect");
+            document.getElementById("preOne").style.backgroundColor = "indianred";
+            document.getElementById("postOne").style.backgroundColor = "indianred";
+            break;
+        case "pTwo":
+            console.log("lineThree-preTwo incorrect");
+            document.getElementById("preTwo").style.backgroundColor = "indianred";
+            document.getElementById("postTwo").style.backgroundColor = "indianred";
+            break;
+        case "pThree":
+            console.log("lineThree-preThree incorrect");
+            document.getElementById("preThree").style.backgroundColor = "indianred";
+            document.getElementById("postThree").style.backgroundColor = "indianred";
+            break;
+        default:
+            // code block
+        }
     }
 }
 
